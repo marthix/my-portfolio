@@ -1,0 +1,105 @@
+// Colors
+$yellow:        #FCFC62;
+$black:         #343431;
+$white:         #EFF2ED;
+$font-header:   'Abel', sans-serif;
+$font-body:     'Ubuntu', sans-serif;
+$font-body2:    'Ubuntu Condensed', sans-serif;
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $white;
+  color: $black;
+  font-family: $font-body;
+}
+
+header {
+  background-color: $black;
+  color: $white;
+}
+
+.logo {
+  margin: 12px;
+  width: 35px;
+  height: 50px;
+  float: left;
+  display: inline-block;
+  background-color: $black;
+  -webkit-mask: url(/images/logo.svg);
+  mask: url(/images/logo.svg);
+  transition-duration: 1s;
+}
+
+.nav-container {
+  background-color: $yellow;
+  color: $black;
+  transition-duration: 1s;
+}
+
+.navbar-fixed-top {
+  height: 70px;
+}
+
+nav {
+  max-width: 900px;
+  margin: auto;
+  text-align: right;
+
+  ul {
+    padding: 25px;
+    list-style: none;
+  }
+
+  li {
+    display: inline;
+    padding: 20px;
+  }
+}
+
+.vector-me {
+  float: right;
+  height: 400px;
+  width: 116px;
+  background-color: lighten($black, 10);
+  -webkit-mask: url(/images/man.svg);
+  mask: url(/images/man.svg);
+}
+
+.header-content {
+  max-width: 900px;
+  margin: 70px auto;
+  padding-top: 30px;
+  text-align: center;
+
+  h1 {
+    font-family: $font-header;
+    font-size: 80px;
+    margin-bottom: -5px;
+    margin-top: 40px;
+  }
+
+  span {
+    color: $yellow;
+  }
+
+  em {
+    font-weight: 400;
+    font-size: 14px;
+    color: $black;
+  }
+
+  p {
+    text-align: left;
+    line-height: 1.6;
+    margin-right: 130px;
+    padding: 60px 0 100px 110px;
+  }
+}
+
+main {
+  margin-top: 80px;
+}

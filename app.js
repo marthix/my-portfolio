@@ -13,8 +13,22 @@ var multerFileUpload = multerFormInput({ dest: 'uploads/' })
 var app = expressWebServer()
 
 // Routes
+app.get('/api/v1/portfolio', function(req, res){
+  knexDatabase
+    .select()
+    .from('portfolio')
+    .then(function(data){
+      res.json(data)
+    })
+})
+
 app.post('/save', multerFileUpload.single('image'), function (req, res) {
-  res.send(req.body)
+  knexDatabase
+    .insert(req.body)
+    .into('portfolio')
+    .then(function(){
+      res.send('Saved')
+    })
 })
 
 // Start
