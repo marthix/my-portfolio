@@ -31,46 +31,46 @@ $(document).ready(function(){
 //   }
 // })
 //
-// // Fetch my work!
-// fetch('http://localhost:8000/api/v1/portfolio')
-//
-//   .then(function(jsonData){
-//     return jsonData.json()
-//   })
-//
-//   .then(function(data){
-//
-//     var row = document.createElement('div')
-//     row.classList.add('row')
-//
-//     data.forEach(function(item, i){
-//
-//       // Code to dynamically create content elements
-//
-//       // var col = document.createElement('div')
-//       // col.classList.add('col-sm-4')
-//       //
-//       // var thumbnail = document.createElement('div')
-//       // thumbnail.classList.add('thumbnail')
-//       // thumbnail.setAttribute('data-id', item.id)
-//       //
-//       // var img = document.createElement('img')
-//       // img.setAttribute('src', item.image)
-//       //
-//       // var caption = document.createElement('div')
-//       // caption.classList.add('caption')
-//       //
-//       // var captionTitle = document.createElement('h4')
-//       // var text = document.createTextNode(item.title)
-//       //
-//       // captionTitle.appendChild(text)
-//       // caption.appendChild(captionTitle)
-//       // thumbnail.appendChild(img)
-//       // thumbnail.appendChild(caption)
-//       // col.appendChild(thumbnail)
-//       // row.appendChild(col)
-//       //
-//       // featured.appendChild(row)
-//
-//     })
-//   })
+// Fetch my work!
+fetch('http://localhost:8000/api/v1/portfolio')
+
+  .then(function(jsonData){
+    return jsonData.json()
+  })
+
+  .then(function(data){
+
+    var row = document.createElement('div')
+    row.classList.add('row')
+
+    data.forEach(function(item, i){
+
+      //Code to dynamically create content elements
+
+      var col = document.createElement('div')
+      col.classList.add('col-sm-4')
+
+      var thumbnail = document.createElement('div')
+      thumbnail.classList.add('thumbnail')
+      thumbnail.setAttribute('data-id', item.id)
+
+      var img = document.createElement('img')
+      img.setAttribute('src', item.image)
+
+      var caption = document.createElement('div')
+      caption.classList.add('caption')
+
+      var captionTitle = document.createElement('h4')
+      var text = document.createTextNode(item.title)
+
+      captionTitle.appendChild(text)
+      caption.appendChild(captionTitle)
+      thumbnail.appendChild(img)
+      thumbnail.appendChild(caption)
+      col.appendChild(thumbnail)
+      row.appendChild(col)
+
+      featured.appendChild(row)
+
+    })
+  })
