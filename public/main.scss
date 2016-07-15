@@ -2,6 +2,7 @@
 $yellow:        #FCFC62;
 $black:         #343431;
 $white:         #EFF2ED;
+$shadow:        rgba(0, 0, 0, 0.3);
 $font-header:   'Abel', sans-serif;
 $font-body:     'Ubuntu', sans-serif;
 $font-body2:    'Ubuntu Condensed', sans-serif;
@@ -22,21 +23,28 @@ header {
   color: $white;
 }
 
+a:hover,
+a:active,
+a:focus {
+  color: $yellow;
+  text-decoration: none;
+}
+
 .logo {
   margin: 12px;
-  width: 35px;
-  height: 50px;
+  width: 70px;
+  height: 100px;
   float: left;
   display: inline-block;
-  background-color: $black;
+  background-color: $yellow;
   -webkit-mask: url(/images/logo.svg);
   mask: url(/images/logo.svg);
-  transition-duration: 1s;
+  transition-duration: 0.5s;
 }
 
 .nav-container {
-  background-color: $yellow;
-  color: $black;
+  background-color: $black;
+  color: $yellow;
   transition-duration: 1s;
 }
 
@@ -56,7 +64,46 @@ nav {
 
   li {
     display: inline;
-    padding: 20px;
+    // padding: 20px;
+
+    a {
+      color: $yellow;
+
+      &::before,
+      &::after {
+      	display: inline-block;
+      	opacity: 0;
+      	-webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+      	-moz-transition: -moz-transform 0.3s, opacity 0.2s;
+      	transition: transform 0.3s, opacity 0.2s;
+      }
+
+      &::before {
+      	margin-right: 10px;
+      	content: '[';
+      	-webkit-transform: translateX(20px);
+      	-moz-transform: translateX(20px);
+      	transform: translateX(20px);
+      }
+
+      &::after {
+      	margin-left: 10px;
+      	content: ']';
+      	-webkit-transform: translateX(-20px);
+      	-moz-transform: translateX(-20px);
+      	transform: translateX(-20px);
+      }
+
+      &:hover::before,
+      &:hover::after,
+      &:focus::before,
+      &:focus::after {
+      	opacity: 1;
+      	-webkit-transform: translateX(0px);
+      	-moz-transform: translateX(0px);
+      	transform: translateX(0px);
+      }
+    }
   }
 }
 
@@ -80,6 +127,9 @@ nav {
     font-size: 80px;
     margin-bottom: -5px;
     margin-top: 40px;
+
+    text-shadow: 0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1);
   }
 
   span {
@@ -89,7 +139,7 @@ nav {
   em {
     font-weight: 400;
     font-size: 14px;
-    color: $black;
+    color: lighten($black, 15);
   }
 
   p {
@@ -102,4 +152,21 @@ nav {
 
 main {
   margin-top: 80px;
+
+  h1 {
+    color: $yellow;
+    background-color: $black;
+    display: inline-block;
+    padding: 10px;
+  }
+}
+
+.about {
+  background-color: $black;
+}
+
+.headshot {
+  border-radius: 100%;
+  max-width: 50%;
+  box-shadow: 0 2px 4px $shadow;
 }

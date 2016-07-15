@@ -16,20 +16,21 @@
 <body>
   <header>
     <div class="nav-container navbar-fixed-top">
-      <nav>
+      <nav class="cl-effect-5">
         <div class="logo"></div>
         <ul>
-          <li>Home</li>
-          <li>Work</li>
-          <li>About</li>
-          <li>Contact</li>
+          <li><a href="#Home">Home</a></li>
+          <li><a href="#Work">Work</a></li>
+          <li><a href="#About">About</a></li>
+          <li><a href="#Contact">Contact</a></li>
         </ul>
       </nav>
     </div>
 
     <div class="header-content">
+      <a name="Home"></a>
       <div class="vector-me"></div>
-      <h1>Hi, I'm <span>Jason</span>.</h1>
+      <h1>Hi, I'm <span>Jason.</span></h1>
       <em>(not to be confused with JSON)</em>
       <p>
         As a <span>developer</span>, I want to harness the power of technology to improve people's lives. <br/>
@@ -37,15 +38,23 @@
         As a <span>human</span>, I want to treat others with respect and kindness and to always lead with love.
       </p>
     </div>
+  <a name="Work"></a>
   </header>
 
-  <main class="container" >
+  <main class="container">
+
+    <h1>My Featured Work:</h1>
     <div id="featured">
-      
+
     </div>
   </main>
 
+  <section class="about">
+    <img src="/images/me.png" class="headshot"/>
+  </section>
+
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-  <script src="main.js"></script>
+  <script src="/js/scrollto.min.js"></script>
+  <script src="/js/main.js"></script>
 </body>
 </html>
