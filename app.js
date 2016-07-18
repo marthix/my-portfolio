@@ -7,10 +7,10 @@ var passportAuth = require('passport')
 var knexConfig = require('./knexfile.js')
 var knexDatabase = require('knex')(knexConfig)
 var bookshelfModel = require('bookshelf')(knexDatabase)
-var expressWebServer = require('express')
-var multerFormInput = require('multer')
-var multerFileUpload = multerFormInput({ dest: 'uploads/' })
-var app = expressWebServer()
+var express = require('express')
+var multer = require('multer')
+var upload = multer({ dest: 'uploads/' })
+var app = express()
 
 // Routes
 app.get('/api/v1/portfolio', function(req, res){
@@ -22,7 +22,7 @@ app.get('/api/v1/portfolio', function(req, res){
     })
 })
 
-app.post('/save', multerFileUpload.single('image'), function (req, res) {
+app.post('/save', upload.single('image'), function (req, res) {
   knexDatabase
     .insert(req.body)
     .into('portfolio')
@@ -31,8 +31,16 @@ app.post('/save', multerFileUpload.single('image'), function (req, res) {
     })
 })
 
+// Save files
+fs.readFile(req.files.displayImage.path, function (err, data) {
+  var newPath = __dirname + "/uploads/uploadedFileName";
+  fs.writeFile(newPath, data, function (err) {
+    res.redirect("back");
+  });
+});
+
 // Start
-app.use(expressWebServer.static('public'))
+app.use(express.static('public'))
 app.listen(port, function () {
   console.log('Web server on http://localhost:' + port)
   console.log('Press Ctrl+C to stop.')

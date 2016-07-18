@@ -54,7 +54,12 @@ document.body.addEventListener('click', function(e){
   //   window.location.href = '/detail.html?id=' + e.target.parentNode.getAttribute('data-id')
   // }
 })
-//
+
+
+// jQuery Date Picker Plugin
+$('#date').datepick({dateFormat: 'yyyy-mm-dd'});
+
+
 // Fetch my work!
 fetch('http://localhost:8000/api/v1/portfolio')
 
